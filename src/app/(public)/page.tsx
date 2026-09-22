@@ -1,1 +1,2 @@
-import {Dashboard} from "@/components/dashboard/dashboard"; export default function Page(){return <><p className="eyebrow">Centro de inteligencia</p><h1>Dashboard SOC</h1><p className="subtitle">Prioriza vulnerabilidades, advisories y señales relevantes para tu operación.</p><Dashboard/></>}
+import {Dashboard} from "@/components/dashboard/dashboard";
+export default function Page(){return <Dashboard/>}
