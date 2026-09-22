@@ -1,0 +1,2 @@
+import {AppHeader} from "@/components/layout/app-header"; import {Sidebar} from "@/components/layout/sidebar";
+export default function Layout({children}:{children:React.ReactNode}) { return <div className="app"><Sidebar/><main><AppHeader/><div className="content">{children}</div></main></div> }

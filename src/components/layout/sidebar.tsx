@@ -1,0 +1,3 @@
+import Link from "next/link";
+const links=[['Dashboard','/'],['CVE','/cves'],['CISA KEV','/kev'],['Advisories','/advisories'],['Noticias','/news'],['Fabricantes','/vendors'],['Buscar','/search'],['Acerca de','/about']];
+export function Sidebar(){return <aside className="side"><div className="brand"><span>SR</span>SOC Radar</div><nav><div className="label">Inteligencia</div>{links.map(([name,path])=><Link key={path} className="nav" href={path}>› {name}</Link>)}</nav></aside>}

@@ -1,0 +1,2 @@
+import {SeverityBadge} from "@/components/ui/security-badges";import type {Advisory} from "@/types/security";
+export function AdvisoryCard({advisory}:{advisory:Advisory}){return <article className="row"><div className="row-top"><span className="title">{advisory.vendor} · {advisory.id}</span><SeverityBadge severity={advisory.severity}/></div><div className="meta">{advisory.title} · {advisory.cves.join(", ")} · {advisory.published}</div></article>}

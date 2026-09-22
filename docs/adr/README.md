@@ -1,0 +1,1 @@
+# Architecture Decision Records`n`nRegistra aquí decisiones que modifiquen AGENTS.md.`n

@@ -1,0 +1,1 @@
+export function AppHeader(){return <header className="head"><input className="search" aria-label="Búsqueda global" placeholder="Buscar CVE, advisory o fabricante…"/><span className="head-meta">Vista informativa · Datos de demostración</span></header>}

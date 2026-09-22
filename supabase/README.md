@@ -1,0 +1,1 @@
+# Supabase`n`nEsta fase no contiene migraciones ni funciones. Las tablas futuras expuestas al cliente requerirán RLS. `n

@@ -1,0 +1,2 @@
+import type {NewsItem} from "@/types/security";
+export function NewsCard({item}:{item:NewsItem}){return <article className="row"><div className="row-top"><span className="title">{item.title}</span><span className="badge medium">{item.category}</span></div><div className="meta">{item.source} · {item.published}</div></article>}

@@ -1,0 +1,2 @@
+type Vendor={name:string;advisories:number;latest:string};
+export function VendorCard({vendor}:{vendor:Vendor}){return <article className="panel vendor"><h2>{vendor.name}</h2><p>{vendor.advisories} advisories en el período</p><p>Actividad más reciente: {vendor.latest}</p></article>}
