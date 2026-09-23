@@ -51,6 +51,7 @@
 - Utilidades, configuración y clientes externos en `src/lib`.
 - Tipos compartidos en `src/types`.
 - Migraciones y configuración de Supabase en `supabase/`.
+- Las Edge Functions en `supabase/functions` usan el runtime y el chequeo de tipos de Deno; deben quedar fuera del `tsconfig.json` de Next.js.
 - No mezclar consultas SQL, llamadas de red y presentación visual en el mismo componente.
 
 ## Calidad y seguridad
