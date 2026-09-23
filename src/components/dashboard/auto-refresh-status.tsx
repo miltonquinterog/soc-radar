@@ -6,11 +6,10 @@ import styles from "./auto-refresh-status.module.css";
 
 const REFRESH_INTERVAL_MS = 5 * 60 * 1000;
 
-export function AutoRefreshStatus() {
+export function AutoRefreshStatus({ loadedAt }: { loadedAt?: string }) {
   const router = useRouter();
   const nextRefreshAt = useRef(0);
   const [secondsRemaining, setSecondsRemaining] = useState(300);
-  const [lastRefresh, setLastRefresh] = useState<string | null>(null);
 
   useEffect(() => {
     nextRefreshAt.current = Date.now() + REFRESH_INTERVAL_MS;
@@ -19,7 +18,6 @@ export function AutoRefreshStatus() {
       if (remaining <= 0) {
         nextRefreshAt.current = Date.now() + REFRESH_INTERVAL_MS;
         setSecondsRemaining(300);
-        setLastRefresh(new Date().toLocaleTimeString("es-CO", { hour: "2-digit", minute: "2-digit" }));
         router.refresh();
       } else {
         setSecondsRemaining(remaining);
@@ -31,19 +29,20 @@ export function AutoRefreshStatus() {
   const refreshNow = () => {
     nextRefreshAt.current = Date.now() + REFRESH_INTERVAL_MS;
     setSecondsRemaining(300);
-    setLastRefresh(new Date().toLocaleTimeString("es-CO", { hour: "2-digit", minute: "2-digit" }));
     router.refresh();
   };
 
   const minutes = Math.floor(secondsRemaining / 60);
   const seconds = String(secondsRemaining % 60).padStart(2, "0");
 
+  const loadedTime = loadedAt ? new Date(loadedAt).toLocaleTimeString("es-CO", { timeZone: "America/Bogota", hour: "2-digit", minute: "2-digit" }) : null;
+
   return (
     <div className={styles.status} aria-label="Estado de actualización del dashboard">
       <span className={styles.indicator} aria-hidden="true" />
-      <span>Vista de demostración</span>
+      <span>CISA KEV real · otras secciones demo</span>
       <span className={styles.countdown} aria-live="off">Próxima recarga en {minutes}:{seconds}</span>
-      {lastRefresh && <span className={styles.last}>Vista actualizada a las {lastRefresh}</span>}
+      {loadedTime && <span className={styles.last}>Datos KEV consultados a las {loadedTime}</span>}
       <button type="button" onClick={refreshNow}>Actualizar ahora</button>
     </div>
   );
